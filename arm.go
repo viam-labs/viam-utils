@@ -149,14 +149,14 @@ func (s *viamUtilsArm) DoCommand(ctx context.Context, cmd map[string]any) (map[s
 
 	for key, value := range cmd {
 		switch key {
-		case "Transform":
-			values, ok := value.([]interface{})
+		case "transform":
+			values, ok := value.([]any)
 			if !ok {
-				return nil, fmt.Errorf("Transform value must be an array")
+				return nil, fmt.Errorf("input must be an array")
 			}
-			
+
 			if len(values) != 6 {
-				return nil, fmt.Errorf("Transform value must contain exactly 6 joint positions, got %d", len(values))
+				return nil, fmt.Errorf("input must contain exactly 6 joint positions, got %d", len(values))
 			}
 
 			var jointPos []referenceframe.Input

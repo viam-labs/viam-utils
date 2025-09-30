@@ -1,18 +1,18 @@
-# Module viam-utils 
+# Module viam-utils
 
-Provide a description of the purpose of the module and any relevant information.
+This module is used to be able to access methods that are only available in go through DoCommands.
 
 ## Model viam:viam-utils:arm
 
-Provide a description of the model and any relevant information.
+Go methods available in the arm RDK
 
 ### Configuration
+
 The following attribute template can be used to configure this model:
 
 ```json
 {
-"attribute_1": <float>,
-"attribute_2": <string>
+"arm": <string>,
 }
 ```
 
@@ -20,31 +20,35 @@ The following attribute template can be used to configure this model:
 
 The following attributes are available for this model:
 
-| Name          | Type   | Inclusion | Description                |
-|---------------|--------|-----------|----------------------------|
-| `attribute_1` | float  | Required  | Description of attribute 1 |
-| `attribute_2` | string | Optional  | Description of attribute 2 |
+| Name  | Type   | Inclusion | Description                |
+|------ |--------|-----------|----------------------------|
+| `arm` | string | Required  | Name of the configured arm |
 
 #### Example Configuration
 
 ```json
 {
-  "attribute_1": 1.0,
-  "attribute_2": "foo"
+  "arm": "ur20"
 }
 ```
 
 ### DoCommand
 
-If your model implements DoCommand, provide an example payload of each command that is supported and the arguments that can be used. If your model does not implement DoCommand, remove this section.
+#### transform DoCommand
 
-#### Example DoCommand
+`transform` will transform the joint positions into a pose containing the translation and orientation vector.
 
 ```json
 {
-  "command_name": {
-    "arg1": "foo",
-    "arg2": 1
+  "transform": {
+    "joint_position": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6
+    ],
   }
 }
 ```
