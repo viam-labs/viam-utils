@@ -3,10 +3,10 @@
   "module_id": "viam:viam-utils",
   "visibility": "public",
   "url": "https://github.com/viam-labs/viam-utils",
-  "description": "Modular arm component: arm",
+  "description": "Modular generic service: arm",
   "models": [
     {
-      "api": "rdk:component:arm",
+      "api": "rdk:service:generic",
       "model": "viam:viam-utils:arm",
       "short_description": "Provide a short (100 characters or less) description of this model here",
       "markdown_link": "README.md#model-viamviam-utilsarm"

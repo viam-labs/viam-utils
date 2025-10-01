@@ -5,7 +5,7 @@ import (
 	"viamutils"
 	"go.viam.com/rdk/logging"
 	"go.viam.com/rdk/resource"
-	arm "go.viam.com/rdk/components/arm"
+	generic "go.viam.com/rdk/services/generic"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func realMain() error {
 
 	cfg := viamutils.Config{}
 
-	thing, err := viamutils.NewArm(ctx, deps, arm.Named("foo"), &cfg, logger)
+	thing, err := viamutils.NewArm(ctx, deps, generic.Named("foo"), &cfg, logger)
 	if err != nil {
 		return err
 	}
