@@ -127,7 +127,9 @@ func (s *viamUtilsArm) DoCommand(ctx context.Context, cmd map[string]interface{}
 				s.logger.Error(err)
 				return nil, err
 			}
-			return map[string]any{"command": pose}, nil
+			return map[string]any{
+				"orientation": pose.Orientation(),
+			}, nil
 		default:
 			return resp, nil
 		}
