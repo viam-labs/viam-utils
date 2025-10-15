@@ -127,8 +127,16 @@ func (s *viamUtilsArm) DoCommand(ctx context.Context, cmd map[string]interface{}
 				s.logger.Error(err)
 				return nil, err
 			}
+			point := pose.Point()
+			ov_deg := pose.Orientation().OrientationVectorDegrees()
 			return map[string]any{
-				"orientation": pose.Orientation(),
+				"x":     point.X,
+				"y":     point.Y,
+				"z":     point.Z,
+				"o_x":   ov_deg.OX,
+				"o_y":   ov_deg.OY,
+				"o_z":   ov_deg.OZ,
+				"theta": ov_deg.Theta,
 			}, nil
 		default:
 			return resp, nil
